@@ -4,6 +4,8 @@ This thing let you brag about your stats in games
 
 ## How to use
 
+First install python. Then run  ```pip install -r requirements.txt```
+
 Run **main.py**, it will create **config.yaml**. Each time data parsed, **current_data.json** created with all data. You will need it to [add new lines](#add-new-lines)
 
 ### Options in config.yaml
