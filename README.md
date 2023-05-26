@@ -46,3 +46,7 @@ Me: NAME
 (Some delay)
 My wins: 1234
 ```
+
+### Add it to autorun
+
+Just make a shortcut for **autorun_discord_status_stat.bat** and put it in Autorun folder (you can access it by pressing win+r and type ```shell:startup```)
