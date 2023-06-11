@@ -2,6 +2,7 @@ import requests
 import yaml
 import json
 import re
+import atexit
 
 from time import sleep
 from importlib import import_module
@@ -42,6 +43,14 @@ def set_status(text, token) -> None:
     )
 
 
+def clear_status(token: str) -> None:
+    return requests.patch(
+        "https://ptb.discordapp.com/api/v6/users/@me/settings",
+        headers={"authorization": token},
+        json={"custom_status": {"text": text}}
+    )
+
+
 def is_discord_valid(token: str) -> bool:
     """
     Checks Discord auth token
@@ -70,6 +79,8 @@ def format_string(string, data) -> str:
         string = string.replace(replacing, str(get_from_tree(data, *replacing.replace("{", "").replace("}", "").split("."))))
     return string
 
+
+atexit.register(clear_status)
 
 if CONFIG.get("discord_token") == "":
     raise Exception("No Discord token in settings.py")
